@@ -26,20 +26,16 @@ import { GeocodeModule } from './geocode/geocode.module';
       envFilePath: ['.env', '.env.production'],
     }),
 
+    // ⭐ CONEXIÓN A POSTGRESQL USANDO DATABASE_URL
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST || 'localhost',
-      port: parseInt(process.env.DB_PORT || '5432'),
-      username: process.env.DB_USER || 'postgres',
-      password: process.env.DB_PASSWORD || 'postgres',
-      database: process.env.DB_NAME || 'saludcasa',
+      url: process.env.DATABASE_URL,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: false,
-      ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
-      logging: process.env.NODE_ENV === 'development',
+      ssl: { rejectUnauthorized: false },
       extra: {
         max: 20,
-        connectionTimeoutMillis: 10000,
+        connectionTimeoutMillis: 30000,
       },
     }),
 
