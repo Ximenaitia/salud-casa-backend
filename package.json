@@ -6,9 +6,8 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "build": "npx nest build",
+    "start": "node dist/main.js",
     "start:dev": "nest start --watch",
     "start:docker": "npx ts-node -r tsconfig-paths/register --project tsconfig.app.json ./src/main.ts",
     "start:debug": "nest start --debug --watch",
@@ -27,6 +26,7 @@
   "dependencies": {
     "@aws-sdk/client-location": "^3.1079.0",
     "@nestjs/cache-manager": "^3.1.2",
+    "@nestjs/cli": "^11.0.0",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.0",
     "@nestjs/core": "^11.0.1",
@@ -51,7 +51,6 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.18.0",
-    "@nestjs/cli": "^11.0.0",
     "@nestjs/schematics": "^11.0.0",
     "@nestjs/testing": "^11.0.1",
     "@types/bcrypt": "^6.0.0",
